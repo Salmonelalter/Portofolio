@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portofolio Mahasiswa Informatika</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f6;--surface:#fff;--ink:#101828;--muted:#566074;--line:#d5dbe6;--accent:#2b4eff;--accent-ink:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1320;--surface:#161d2f;--ink:#eef1f8;--muted:#9aa5bb;--line:#273049;--accent:#7c93ff;--accent-ink:#0e1320}}
+:root[data-theme="dark"]{--bg:#0e1320;--surface:#161d2f;--ink:#eef1f8;--muted:#9aa5bb;--line:#273049;--accent:#7c93ff;--accent-ink:#0e1320}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;line-height:1.1;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:1.25rem;height:3.6rem}
+nav .brand{font:800 1.05rem "Bricolage Grotesque",sans-serif;margin-right:auto;text-decoration:none}
+nav a.l{text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a.l:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:2rem;padding:.25rem .8rem;cursor:pointer;font:inherit;font-size:.85rem}
+section{padding:4.5rem 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:2rem}
+/* hero */
+.hero{padding:5rem 0 4rem}
+.hero h1{font-size:clamp(2.8rem,9vw,6.5rem);font-weight:800;max-width:14ch}
+.hero .role{color:var(--accent);font:700 1.2rem "Bricolage Grotesque",sans-serif;margin:1rem 0 1.5rem}
+.id{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:.6rem;background:var(--surface);width:fit-content;overflow:hidden;max-width:100%}
+.id div{padding:.7rem 1.2rem;border-right:1px solid var(--line)}
+.id div:last-child{border:0}
+.id small{display:block;color:var(--muted);font-size:.78rem}
+.id b{font-weight:500}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;margin-top:3rem}
+.about p{max-width:60ch;color:var(--muted)}
+.facts dt{font-size:.8rem;color:var(--muted)}
+.facts dd{margin:0 0 1rem;font-weight:500}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.7rem 1.4rem;border-radius:.5rem;text-decoration:none;font-weight:500;margin-top:1.5rem}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.25rem}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:.8rem;padding:1.5rem}
+.skill h3{font-size:1.35rem;margin-bottom:.5rem}
+.skill p{color:var(--muted);font-size:.95rem;margin-bottom:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;padding:0;list-style:none}
+.tags li{border:1px solid var(--line);border-radius:2rem;padding:.15rem .7rem;font-size:.85rem}
+/* achievements */
+.tl{list-style:none;padding:0;border-left:2px solid var(--line);margin-left:.4rem}
+.tl li{position:relative;padding:0 0 2rem 1.75rem}
+.tl li::before{content:"";position:absolute;left:-.46rem;top:.5rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--accent)}
+.tl .yr{font:700 1.1rem "Bricolage Grotesque",sans-serif;color:var(--accent)}
+.tl h3{font-size:1.35rem;margin:.1rem 0}
+.tl .org{color:var(--muted);font-size:.9rem}
+.tl p{max-width:60ch;margin-top:.4rem}
+.tl a{color:var(--accent);font-size:.9rem}
+/* contact */
+.contact h2{font-size:clamp(2.4rem,7vw,5rem);max-width:12ch}
+.links{display:grid;gap:.75rem;max-width:30rem;margin:2rem 0}
+.links a{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;background:var(--surface);border:1px solid var(--line);border-radius:.6rem;text-decoration:none}
+.links a:hover{border-color:var(--accent)}
+.links span{color:var(--muted)}
+footer{padding:1.5rem 0;color:var(--muted);font-size:.85rem}
+@media (max-width:700px){.about{grid-template-columns:1fr;gap:1.5rem}nav a.l{display:none}.id div{border-right:0;border-bottom:1px solid var(--line);width:100%}.id div:last-child{border:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#about" id="brand"></a>
+  <a class="l" href="#about">About</a><a class="l" href="#skills">What I Can Do</a><a class="l" href="#achievement">Achievement</a><a class="l" href="#contact">Contact</a>
+  <button id="theme" type="button" aria-label="Ganti tema">Tema</button>
+</nav></div></header>
+
+<main>
+<section id="about" class="hero"><div class="wrap">
+  <h1 id="name"></h1>
+  <p class="role" id="role"></p>
+  <div class="id" id="idcard"></div>
+  <div class="about">
+    <div><p id="desc"></p><a class="btn" id="cv" href="#">Unduh CV</a></div>
+    <dl class="facts" id="facts"></dl>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>What I Can Do</h2>
+  <div class="skills" id="skillList"></div>
+</div></section>
+
+<section id="achievement"><div class="wrap">
+  <h2>Achievement</h2>
+  <ol class="tl" id="achList"></ol>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Mari bekerja sama.</h2>
+  <p id="cta" style="color:var(--muted);max-width:50ch"></p>
+  <div class="links" id="linkList"></div>
+</div></section>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script>
+/* ====== EDIT DATA DI BAWAH INI SAJA ====== */
+const DATA = {
+  nama: "Abdillah Salman",
+  nim: "26051204067",
+  prodi: "Teknik Informatika",
+  kampus: "Universitas Negeri Surabaya",
+  angkatan: "2026",
+  peran: "Mahasiswa Teknik Informatika yang sedang belajar membangun aplikasi web.",
+  deskripsi: "Saya mahasiswa baru Informatika yang suka mengubah ide menjadi produk digital sederhana. Saat ini saya belajar dasar pemrograman dan pengembangan web, dan terbuka untuk proyek kecil, lomba, serta kolaborasi.",
+  pendidikan: "S1 Teknik Informatika, Universitas Negeri Surabaya (2026 – sekarang)",
+  aktivitas: "Belajar HTML, CSS, JavaScript",
+  cv: "cv.pdf",
+  skills: [
+    {judul: "Pengembangan Web", isi: "Membuat halaman web yang rapi dan responsif.", tools: ["HTML", "CSS", "JavaScript", "VS Code", "Git"]},
+    {judul: "Pemrograman Dasar", isi: "Menulis logika program dan menyelesaikan soal algoritma.", tools: ["Python", "C++", "GitHub"]},
+    {judul: "Desain & Dokumentasi", isi: "Menyusun tampilan dan dokumentasi proyek.", tools: ["Figma", "Canva", "Google Workspace"]},
+    {judul: "Kerja dengan AI", isi: "Memakai AI untuk belajar, menulis kode, dan memeriksa hasilnya.", tools: ["Claude", "ChatGPT", "Google AI Studio"]}
+  ],
+  achievements: [
+    {nama: "Sertifikat Pelatihan", tahun: "2026", lembaga: "Google", isi: "Google Gemini Academy", bukti: "master.encrypted.pdf"},
+  ],
+  cta: "Saya terbuka untuk magang, proyek, dan kolaborasi. Kirim pesan dan saya akan membalas.",
+  contacts: [
+    {label: "Email", teks: "abdillahsalman27@gmail.com", url: "mailto:abdillahsalman27@gmail.com"},
+    {label: "GitHub", teks: "github.com/Salmonelalter", url: "https://github.com/Salmonelalter"},
+    {label: "LinkedIn", teks: "linkedin.com/in/abdillah-salman", url: "https://www.linkedin.com/in/abdillah-salman-275316441"}
+  ]
+};
+/* ========================================= */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.title = DATA.nama + " – Portofolio";
+$("brand").textContent = DATA.nama;
+$("name").textContent = DATA.nama;
+$("role").textContent = DATA.peran;
+$("idcard").innerHTML = [["Nama", DATA.nama], ["NIM", DATA.nim], ["Prodi", DATA.prodi]].map(([k, v]) => `<div><small>${k}</small><b>${esc(v)}</b></div>`).join("");
+$("desc").textContent = DATA.deskripsi;
+$("cv").href = DATA.cv;
+$("facts").innerHTML = [["Pendidikan", DATA.pendidikan], ["Aktivitas saat ini", DATA.aktivitas]].map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+$("skillList").innerHTML = DATA.skills.map(s => `<article class="skill"><h3>${esc(s.judul)}</h3><p>${esc(s.isi)}</p><ul class="tags">${s.tools.map(t => `<li>${esc(t)}</li>`).join("")}</ul></article>`).join("");
+$("achList").innerHTML = DATA.achievements.map(a => `<li><span class="yr">${esc(a.tahun)}</span><h3>${esc(a.nama)}</h3><div class="org">${esc(a.lembaga)}</div><p>${esc(a.isi)}</p>${a.bukti ? `<a href="${esc(a.bukti)}" target="_blank" rel="noopener">Lihat bukti</a>` : ""}</li>`).join("");
+$("cta").textContent = DATA.cta;
+$("linkList").innerHTML = DATA.contacts.map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener"><b>${esc(c.label)}</b><span>${esc(c.teks)}</span></a>`).join("");
+$("foot").textContent = "© " + new Date().getFullYear() + " " + DATA.nama + ". Semua hak dilindungi.";
+$("theme").addEventListener("click", () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+});
+</script>
+</body>
+</html>
